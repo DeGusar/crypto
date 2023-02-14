@@ -1,34 +1,56 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import './App.css'
+import React, { FC, PropsWithChildren, lazy, Suspense } from 'react';
+import {
+  createBrowserRouter,
+  RouterProvider,
+  Route,
+  createRoutesFromElements,
+} from 'react-router-dom';
+import routePaths from './utils/constants/routePaths';
+import './assets/styles/index.scss';
+import Spinner from './components/Spinner';
+import MainLayout from './layouts/MainLayout';
+
+const MainPage = lazy(() => import('./pages/MainPage'));
+const NotFoundPage = lazy(() => import('./pages/NotFoundPage'));
+const ChartsPage = lazy(() => import('./pages/ChartsPage'));
+
+const SuspenseRoute: FC<PropsWithChildren> = ({ children }) => {
+  return <Suspense fallback={<Spinner />}>{children}</Suspense>;
+};
+
+const router = createBrowserRouter(
+  createRoutesFromElements(
+    <Route element={<MainLayout />}>
+      <Route
+        path={routePaths.MAIN_PAGE}
+        element={
+          <SuspenseRoute>
+            <MainPage />
+          </SuspenseRoute>
+        }
+      />
+      <Route
+        path={routePaths.CHARTS_PAGE}
+        element={
+          <SuspenseRoute>
+            <ChartsPage />
+          </SuspenseRoute>
+        }
+      />
+      <Route
+        path="*"
+        element={
+          <SuspenseRoute>
+            <NotFoundPage />
+          </SuspenseRoute>
+        }
+      />
+    </Route>
+  )
+);
 
 function App() {
-  const [count, setCount] = useState(0)
-
-  return (
-    <div className="App">
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src="/vite.svg" className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://reactjs.org" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </div>
-  )
+  return <RouterProvider router={router} />;
 }
 
-export default App
+export default App;
