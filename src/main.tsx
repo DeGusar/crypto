@@ -1,10 +1,16 @@
-import React from 'react'
-import ReactDOM from 'react-dom/client'
-import App from './App'
-import './index.css'
+import React from 'react';
+import ReactDOM from 'react-dom/client';
+import { ConfigProvider, theme } from 'antd';
+import App from './App';
+
+const { darkAlgorithm } = theme;
 
 ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
-  <React.StrictMode>
+  <ConfigProvider
+    theme={{
+      algorithm: darkAlgorithm,
+    }}
+  >
     <App />
-  </React.StrictMode>,
-)
+  </ConfigProvider>
+);
