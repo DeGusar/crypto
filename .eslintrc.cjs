@@ -28,5 +28,6 @@ module.exports = {
     ],
     'react/function-component-definition': 'off',
     '@typescript-eslint/no-non-null-assertion': 'off',
+    'no-param-reassign': 'off',
   },
 };

@@ -5,10 +5,12 @@ import {
   Route,
   createRoutesFromElements,
 } from 'react-router-dom';
+import { ConfigProvider, theme } from 'antd';
 import routePaths from './utils/constants/routePaths';
 import './assets/styles/index.scss';
 import Spinner from './components/Spinner';
 import MainLayout from './layouts/MainLayout';
+import { useAppSelector } from './hooks/redux';
 
 const MainPage = lazy(() => import('./pages/MainPage'));
 const NotFoundPage = lazy(() => import('./pages/NotFoundPage'));
@@ -49,8 +51,21 @@ const router = createBrowserRouter(
   )
 );
 
+const { darkAlgorithm, defaultAlgorithm } = theme;
+
 function App() {
-  return <RouterProvider router={router} />;
+  const chosenTheme = useAppSelector((state) => state.root.theme);
+
+  return (
+    <ConfigProvider
+      theme={{
+        algorithm: chosenTheme === 'dark' ? darkAlgorithm : defaultAlgorithm,
+        hashed: false,
+      }}
+    >
+      <RouterProvider router={router} />
+    </ConfigProvider>
+  );
 }
 
 export default App;
