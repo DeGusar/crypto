@@ -4,7 +4,7 @@ import { Typography } from 'antd';
 const { Paragraph } = Typography;
 
 const ChartsPage = () => {
-  return <Paragraph style={{ margin: 0 }}>Charts page</Paragraph>;
+  return <Paragraph>Charts page</Paragraph>;
 };
 
 export default ChartsPage;

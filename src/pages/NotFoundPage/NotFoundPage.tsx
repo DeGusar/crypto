@@ -12,7 +12,7 @@ const NotFoundPage = () => {
   return (
     <Row align="middle">
       <Col>
-        <Paragraph style={{ margin: 0 }}>Error 404</Paragraph>
+        <Paragraph>Error 404</Paragraph>
       </Col>
       <Col push={1}>
         <Button type="link" onClick={handleGoMain}>
