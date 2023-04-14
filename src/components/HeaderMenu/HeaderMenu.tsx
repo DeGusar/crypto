@@ -1,12 +1,12 @@
 import React from 'react';
+import { observer } from 'mobx-react-lite';
 import { Layout, Menu, Typography, Button, theme } from 'antd';
 import { ItemType } from 'antd/lib/menu/hooks/useItems';
 import { NavLink } from 'react-router-dom';
 import styles from './HeaderMenu.module.scss';
-import { useAppDispatch, useAppSelector } from '../../hooks/redux';
-import { switchTheme } from '../../store/reducers/cryptoSlice';
 import routePaths from '../../utils/constants/routePaths';
 import useSelectedNavMenuKeys from './useSelectedNavMenuKeys';
+import colorTheme from '../../store/theme';
 
 const { Header } = Layout;
 const { Title } = Typography;
@@ -22,9 +22,8 @@ const items: ItemType[] = [
   },
 ];
 
-function HeaderMenu() {
-  const dispatch = useAppDispatch();
-  const chosenTheme = useAppSelector((state) => state.root.theme);
+const HeaderMenu = observer(() => {
+  const chosenTheme = colorTheme.theme;
   const selectedKeys = useSelectedNavMenuKeys(items);
 
   const {
@@ -32,7 +31,7 @@ function HeaderMenu() {
   } = theme.useToken();
 
   const toggleTheme = () =>
-    dispatch(switchTheme(chosenTheme === 'light' ? 'dark' : 'light'));
+    colorTheme.changeTheme(colorTheme.theme === 'light' ? 'dark' : 'light');
 
   return (
     <Header className={styles.header} style={{ background: colorBgContainer }}>
@@ -47,6 +46,6 @@ function HeaderMenu() {
       />
     </Header>
   );
-}
+});
 
 export default HeaderMenu;

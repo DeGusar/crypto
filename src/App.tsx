@@ -1,4 +1,5 @@
 import React, { FC, PropsWithChildren, lazy, Suspense } from 'react';
+import { observer } from 'mobx-react-lite';
 import {
   createBrowserRouter,
   RouterProvider,
@@ -7,10 +8,10 @@ import {
 } from 'react-router-dom';
 import { ConfigProvider, theme } from 'antd';
 import routePaths from './utils/constants/routePaths';
-import './assets/styles/index.scss';
 import Spinner from './components/Spinner';
 import MainLayout from './layouts/MainLayout';
-import { useAppSelector } from './hooks/redux';
+import colorTheme from './store/theme';
+import './assets/styles/index.scss';
 
 const MainPage = lazy(() => import('./pages/MainPage'));
 const NotFoundPage = lazy(() => import('./pages/NotFoundPage'));
@@ -53,19 +54,18 @@ const router = createBrowserRouter(
 
 const { darkAlgorithm, defaultAlgorithm } = theme;
 
-function App() {
-  const chosenTheme = useAppSelector((state) => state.root.theme);
-
+const App = observer(() => {
   return (
     <ConfigProvider
       theme={{
-        algorithm: chosenTheme === 'dark' ? darkAlgorithm : defaultAlgorithm,
+        algorithm:
+          colorTheme.theme === 'dark' ? darkAlgorithm : defaultAlgorithm,
         hashed: false,
       }}
     >
       <RouterProvider router={router} />
     </ConfigProvider>
   );
-}
+});
 
 export default App;
