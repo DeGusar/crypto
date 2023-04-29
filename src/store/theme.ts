@@ -1,15 +1,17 @@
 import { makeAutoObservable } from 'mobx';
+import THEMES from 'utils/constants/themes';
 
 class Theme {
-  theme = 'dark';
+  theme = THEMES.DARK;
 
   constructor() {
     makeAutoObservable(this);
   }
 
-  changeTheme(newTheme: string) {
-    this.theme = newTheme;
+  toggleTheme() {
+    this.theme = this.theme === THEMES.LIGHT ? THEMES.DARK : THEMES.LIGHT;
   }
 }
 
-export default new Theme();
+const colorTheme = new Theme();
+export default colorTheme;

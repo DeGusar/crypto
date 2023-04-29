@@ -3,8 +3,8 @@ import styles from './Spinner.module.scss';
 
 const Spinner = () => {
   return (
-    <div className={styles.preloaderWrapper}>
-      <div className={styles.ldsSpinner}>
+    <div className={styles.spinner}>
+      <div className={styles.spinnerWrapper}>
         <div />
         <div />
         <div />

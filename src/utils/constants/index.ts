@@ -1,6 +1,7 @@
 import routePaths from './routePaths';
+import THEMES from './themes';
 
 export default {
-  layoutNames,
   routePaths,
+  THEMES,
 };
