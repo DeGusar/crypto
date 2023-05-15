@@ -1,5 +1,5 @@
 import React from 'react';
-import { describe, it, vi } from 'vitest';
+import { Mock, describe, it, vi } from 'vitest';
 import { render, fireEvent, screen } from '@testing-library/react';
 import { useNavigate } from 'react-router-dom';
 import routePaths from '@/utils/constants/routePaths';
@@ -10,10 +10,14 @@ vi.mock('react-router-dom', () => ({
 }));
 
 describe('NotFoundPage component', () => {
-  const navigate = vi.fn();
-  (useNavigate as jest.Mock).mockReturnValue(navigate);
+  let navigate: Mock<
+    ReturnType<typeof useNavigate>[],
+    Parameters<typeof useNavigate>
+  >;
 
   beforeEach(() => {
+    navigate = vi.fn();
+    (useNavigate as jest.Mock).mockReturnValue(navigate);
     render(<NotFoundPage />);
   });
 
