@@ -1,9 +1,9 @@
 import React, { FC, PropsWithChildren } from 'react';
 import { ConfigProvider as ConfigProviderAntd, theme } from 'antd';
 import { observer } from 'mobx-react-lite';
-import colorTheme from 'store/theme';
-import THEMES from 'utils/constants/themes';
-import 'assets/styles/index.scss';
+import colorTheme from './store/theme';
+import THEMES from './utils/constants/themes';
+import '@/assets/styles/index.scss';
 
 const { darkAlgorithm, defaultAlgorithm } = theme;
 

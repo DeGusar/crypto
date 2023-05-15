@@ -3,8 +3,8 @@ import { observer } from 'mobx-react-lite';
 import { Layout, Menu, Typography, Button, theme } from 'antd';
 import { NavLink } from 'react-router-dom';
 import { ItemType } from 'antd/lib/menu/hooks/useItems';
-import routePaths from 'utils/constants/routePaths';
-import colorTheme from 'store/theme';
+import routePaths from '@/utils/constants/routePaths';
+import colorTheme from '@/store/theme';
 import useSelectedNavMenuKeys from './useSelectedNavMenuKeys';
 import styles from './HeaderMenu.module.scss';
 

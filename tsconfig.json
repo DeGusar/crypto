@@ -15,16 +15,9 @@
     "isolatedModules": true,
     "noEmit": true,
     "jsx": "react-jsx",
-    "baseUrl": "src",
+    "baseUrl": "./src",
     "paths": {
-      "assets/*": ["assets/*"],
-      "components/*": ["components/*"],
-      "hooks/*": ["hooks/*"],
-      "layouts/*": ["layouts/*"],
-      "pages/*": ["pages/*"],
-      "store/*": ["store/*"],
-      "utils/*": ["utils/*"],
-      "router/*": ["router/*"]
+      "@/*": ["./*"]
     }
   },
   "include": ["vite.config.ts", ".eslintrc.cjs", "src", ".stylelintrc.json"],
