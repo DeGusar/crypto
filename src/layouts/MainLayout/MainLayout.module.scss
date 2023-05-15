@@ -1,0 +1,11 @@
+.mainLayout {
+  min-height: 100vh;
+
+  & .mainLayoutContent {
+    padding: 20px;
+  }
+
+  & .mainLayoutFooter {
+    text-align: center;
+  }
+}
