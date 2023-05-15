@@ -10,8 +10,9 @@ function useSelectedNavMenuKeys(items: ItemType[]) {
   const { pathname } = useLocation();
 
   return useMemo(() => {
-    const keys = items.map((x) => x!.key as string);
-    const selected = keys.find((x) => isMatch(x, pathname));
+    const keys = items.map((item) => item!.key as string);
+    const selected = keys.find((key) => isMatch(key, pathname));
+
     return selected ? [selected] : [];
   }, [pathname, items]);
 }

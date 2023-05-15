@@ -1,7 +1,7 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Typography, Row, Button, Col } from 'antd';
-import routePaths from '../../utils/constants/routePaths';
+import routePaths from '@/utils/constants/routePaths';
 
 const { Paragraph } = Typography;
 

@@ -1,7 +1,7 @@
 import React from 'react';
 import { Outlet } from 'react-router-dom';
 import { Layout } from 'antd';
-import HeaderMenu from 'components/HeaderMenu';
+import HeaderMenu from '@/components/HeaderMenu';
 import styles from './MainLayout.module.scss';
 
 const { Content, Footer } = Layout;

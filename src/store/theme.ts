@@ -1,5 +1,5 @@
 import { makeAutoObservable } from 'mobx';
-import THEMES from 'utils/constants/themes';
+import THEMES from '@/utils/constants/themes';
 
 class Theme {
   theme = THEMES.DARK;

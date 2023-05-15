@@ -4,9 +4,9 @@ import {
   Route,
   createRoutesFromElements,
 } from 'react-router-dom';
-import routePaths from 'utils/constants/routePaths';
-import Spinner from 'components/Spinner';
-import MainLayout from 'layouts/MainLayout';
+import routePaths from '@/utils/constants/routePaths';
+import MainLayout from '@/layouts/MainLayout';
+import Spinner from '@/components/Spinner';
 
 const MainPage = lazy(() => import('../pages/MainPage'));
 const NotFoundPage = lazy(() => import('../pages/NotFoundPage'));

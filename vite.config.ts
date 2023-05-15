@@ -27,14 +27,7 @@ export default defineConfig({
   },
   resolve: {
     alias: {
-      assets: '/src/assets',
-      components: '/src/components',
-      hooks: '/src/hooks',
-      layouts: '/src/layouts',
-      pages: '/src/pages',
-      store: '/src/store',
-      utils: '/src/utils',
-      router: '/src/router',
+      '@': '/src',
     },
   },
 });

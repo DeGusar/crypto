@@ -20,6 +20,7 @@ module.exports = {
   },
   plugins: ['react', '@typescript-eslint', 'prettier'],
   rules: {
+    'newline-before-return': 'error',
     'prettier/prettier': [
       'error',
       {
@@ -29,5 +30,6 @@ module.exports = {
     'react/function-component-definition': 'off',
     '@typescript-eslint/no-non-null-assertion': 'off',
     'no-param-reassign': 'off',
+    'import/extensions': 'off',
   },
 };
