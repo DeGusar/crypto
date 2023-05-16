@@ -39,7 +39,6 @@ const HeaderMenu = observer(() => {
         mode="horizontal"
         theme={chosenTheme}
         items={items}
-        // style={{ background: colorBgContainer }}
         selectedKeys={selectedKeys}
       />
     </Header>
