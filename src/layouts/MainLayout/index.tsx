@@ -1,6 +1,6 @@
 import React from 'react';
 import { Outlet } from 'react-router-dom';
-import { Layout } from 'antd';
+import { Col, Layout, Row } from 'antd';
 import HeaderMenu from '@/components/HeaderMenu';
 import styles from './MainLayout.module.scss';
 
@@ -11,9 +11,11 @@ const MainLayout = () => {
     <Layout className={styles.mainLayout}>
       <HeaderMenu />
       <Content>
-        <div className={styles.mainLayoutContent}>
-          <Outlet />
-        </div>
+        <Row className={styles.mainLayoutContent}>
+          <Col span={18} offset={3}>
+            <Outlet />
+          </Col>
+        </Row>
       </Content>
       <Footer className={styles.mainLayoutFooter}>
         ©2023 Created by Denis Gusar

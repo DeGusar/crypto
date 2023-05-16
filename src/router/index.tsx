@@ -10,7 +10,6 @@ import Spinner from '@/components/Spinner';
 
 const MainPage = lazy(() => import('../pages/MainPage'));
 const NotFoundPage = lazy(() => import('../pages/NotFoundPage'));
-const ChartsPage = lazy(() => import('../pages/ChartsPage'));
 
 const SuspenseRoute: FC<PropsWithChildren> = ({ children }) => {
   return <Suspense fallback={<Spinner />}>{children}</Suspense>;
@@ -24,14 +23,6 @@ const router = createBrowserRouter(
         element={
           <SuspenseRoute>
             <MainPage />
-          </SuspenseRoute>
-        }
-      />
-      <Route
-        path={routePaths.CHARTS_PAGE}
-        element={
-          <SuspenseRoute>
-            <ChartsPage />
           </SuspenseRoute>
         }
       />
