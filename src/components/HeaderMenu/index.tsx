@@ -16,10 +16,6 @@ const items: ItemType[] = [
     key: '/',
     label: <NavLink to={routePaths.MAIN_PAGE}>Home</NavLink>,
   },
-  {
-    key: '/charts',
-    label: <NavLink to={routePaths.CHARTS_PAGE}>Charts</NavLink>,
-  },
 ];
 
 const HeaderMenu = observer(() => {
@@ -43,7 +39,6 @@ const HeaderMenu = observer(() => {
         mode="horizontal"
         theme={chosenTheme}
         items={items}
-        style={{ background: colorBgContainer }}
         selectedKeys={selectedKeys}
       />
     </Header>

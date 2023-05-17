@@ -1,0 +1,28 @@
+.tickerCard {
+  display: flex;
+  flex-direction: column;
+  border-radius: 4px;
+  padding: 20px;
+  box-sizing: border-box;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+
+  .tickerCardTitle {
+    font-weight: 600;
+  }
+
+  .tickerCardDelete {
+    border: none;
+    background-color: transparent;
+    box-shadow: none;
+  }
+
+  &:hover {
+    outline: 2px solid #10239e;
+  }
+
+  &__chosen {
+    outline: 2px solid #10239e;
+  }
+}
