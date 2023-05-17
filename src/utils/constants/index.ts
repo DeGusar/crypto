@@ -1,13 +1,9 @@
 import routePaths from './routePaths';
 import THEMES from './themes';
-import {
-  cryptoCompareApiKey,
-  cryptoCompareApiBaseUrl,
-} from './cryptoCompareApiConstants';
+import CRYPTOCOMPARE from './cryptoCompare';
 
 export default {
   routePaths,
   THEMES,
-  cryptoCompareApiKey,
-  cryptoCompareApiBaseUrl,
+  CRYPTOCOMPARE,
 };
